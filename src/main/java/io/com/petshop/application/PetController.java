@@ -2,7 +2,6 @@ package io.com.petshop.application;
 
 import io.com.petshop.infrastructure.models.entities.PetEntity;
 import io.com.petshop.infrastructure.repository.PetRepository;
-import io.com.petshop.infrastructure.repository.interfaces.PetJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
