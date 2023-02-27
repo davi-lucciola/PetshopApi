@@ -1,4 +1,4 @@
-package io.com.petshop.application;
+package io.com.petshop.application.controllers;
 
 import io.com.petshop.infrastructure.models.BasicResponse;
 import io.com.petshop.infrastructure.models.entities.PetEntity;
