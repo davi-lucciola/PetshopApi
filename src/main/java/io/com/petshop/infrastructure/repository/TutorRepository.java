@@ -17,7 +17,15 @@ public class TutorRepository {
         return tutorJpaRepository.findAll();
     }
 
+    public TutorEntity findById(Long id) {
+        return tutorJpaRepository.findById(id).orElse(null);
+    }
+
     public TutorEntity saveAndFlush(TutorEntity tutor) {
         return tutorJpaRepository.saveAndFlush(tutor);
+    }
+
+    public void deleteTutorById(Long id) {
+        tutorJpaRepository.deleteById(id);
     }
 }

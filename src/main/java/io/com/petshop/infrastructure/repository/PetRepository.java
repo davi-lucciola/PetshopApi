@@ -16,7 +16,18 @@ public class PetRepository {
         return petJpaRepository.findAll();
     }
 
+    public PetEntity findById(Long id) {
+        return petJpaRepository.findById(id).orElse(null);
+    }
+
     public PetEntity saveAndFlush(PetEntity pet) {
+        if (pet.getId() != null) {
+            pet = this.findById(pet.getId());
+        }
         return petJpaRepository.saveAndFlush(pet);
+    }
+
+    public void deletePetById(Long id) {
+        petJpaRepository.deleteById(id);
     }
 }
