@@ -1,4 +1,4 @@
-package io.com.petshop.infrastructure.models.entities;
+package io.com.petshop.infrastructure.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -24,6 +24,6 @@ public class TutorEntity {
     @Column(nullable = false)
     private String nome;
 
-    @OneToMany(mappedBy = "tutor")
+    @OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL)
     private List<PetEntity> pets;
 }

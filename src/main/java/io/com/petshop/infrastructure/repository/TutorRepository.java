@@ -1,7 +1,6 @@
 package io.com.petshop.infrastructure.repository;
 
-import io.com.petshop.infrastructure.models.entities.PetEntity;
-import io.com.petshop.infrastructure.models.entities.TutorEntity;
+import io.com.petshop.infrastructure.entities.TutorEntity;
 import io.com.petshop.infrastructure.repository.interfaces.TutorJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

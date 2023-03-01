@@ -1,50 +1,25 @@
 package io.com.petshop.application.controllers;
 
-import io.com.petshop.infrastructure.models.BasicResponse;
-import io.com.petshop.infrastructure.models.entities.PetEntity;
-import io.com.petshop.infrastructure.models.entities.TutorEntity;
-import io.com.petshop.infrastructure.repository.TutorRepository;
+import io.com.petshop.domain.models.AdocaoPayload;
+import io.com.petshop.domain.models.responses.BasicResponse;
+import io.com.petshop.domain.services.PetshopService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
-@RequestMapping("/api/v1/petshop/tutor")
+@RequestMapping("/api/v1/petshop")
 public class PetshopController {
 
     @Autowired
-    private TutorRepository tutorRepository;
+    private PetshopService petshopService;
 
-    @GetMapping
-    public ResponseEntity<List<TutorEntity>> findAll() {
-        return new ResponseEntity<>(tutorRepository.findAll(), HttpStatus.OK);
-    }
+    @PostMapping("/adotar-pet")
+    public ResponseEntity<BasicResponse> adotarPet(@RequestBody AdocaoPayload adotarPayload) {
 
-    @GetMapping("/{id}")
-    public ResponseEntity<TutorEntity> findById(@PathVariable Long id) {
-        return new ResponseEntity<>(tutorRepository.findById(id), HttpStatus.OK);
-    }
+        BasicResponse response = petshopService.adotarPet(adotarPayload);
 
-    @PostMapping
-    public ResponseEntity cadastrarTutor(@RequestBody TutorEntity tutor) {
-        tutor = tutorRepository.saveAndFlush(tutor);
-        return new ResponseEntity(HttpStatus.CREATED);
-    }
-
-    @PutMapping
-    public ResponseEntity alterarTutor(@RequestBody TutorEntity pet) {
-        if (pet.getId() != null) {
-            tutorRepository.saveAndFlush(pet);
-        }
-        return new ResponseEntity(HttpStatus.CREATED);
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity deletarTutor(@PathVariable Long id) {
-        tutorRepository.deleteTutorById(id);
-        return new ResponseEntity(HttpStatus.ACCEPTED);
+        return new ResponseEntity(response, HttpStatus.OK);
     }
 }

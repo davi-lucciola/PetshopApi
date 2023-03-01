@@ -1,6 +1,6 @@
 package io.com.petshop.application.controllers;
 
-import io.com.petshop.infrastructure.models.entities.PetEntity;
+import io.com.petshop.infrastructure.entities.PetEntity;
 import io.com.petshop.infrastructure.repository.PetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -48,9 +48,5 @@ public class PetController {
         return new ResponseEntity(HttpStatus.ACCEPTED);
     }
 
-    @PostMapping("/associar-pet/{tutorId}")
-    public ResponseEntity associarPet(@RequestBody PetEntity pet, @PathVariable Long tutorId) {
-        //...
-        return null;
-    }
+
 }
