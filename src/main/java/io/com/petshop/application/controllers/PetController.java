@@ -47,6 +47,4 @@ public class PetController {
         petRepository.deletePetById(id);
         return new ResponseEntity(HttpStatus.ACCEPTED);
     }
-
-
 }

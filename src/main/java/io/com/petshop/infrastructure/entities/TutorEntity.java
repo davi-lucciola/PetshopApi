@@ -1,5 +1,6 @@
 package io.com.petshop.infrastructure.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,6 +25,7 @@ public class TutorEntity {
     @Column(nullable = false)
     private String nome;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL)
     private List<PetEntity> pets;
 }

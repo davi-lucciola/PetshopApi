@@ -20,6 +20,12 @@ public class PetshopService {
     private TutorRepository tutorRepository;
 
     public BasicResponse adotarPet(AdocaoPayload adotarPayload) {
+        if (adotarPayload.getPetId() == null) {
+            return new BasicResponse(
+                    "PET_ID_NULO",
+                    "O Pet id é obrigatório.");
+        }
+
         PetEntity pet = petRepository.findById(adotarPayload.getPetId());
 
         if (pet == null) {

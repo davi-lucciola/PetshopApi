@@ -8,7 +8,6 @@ import lombok.*;
 @AllArgsConstructor
 public class AdocaoPayload {
 
-    @NonNull
     private Long petId;
     private Long tutorId;
 }
