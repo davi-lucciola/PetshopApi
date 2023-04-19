@@ -1,6 +1,5 @@
 package io.com.petshop.infrastructure.repository;
 
-import io.com.petshop.domain.models.dtos.PetDTO;
 import io.com.petshop.infrastructure.entities.PetEntity;
 import io.com.petshop.infrastructure.repository.interfaces.PetJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
